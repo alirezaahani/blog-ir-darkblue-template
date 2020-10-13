@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="fa"><head>
+<meta content="width=device-width, initial-scale=1, maximum-scale=2" name="viewport">
+<head:meta></head:meta>
+<head:script></head:script>
+<head:style></head:style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	
+	<!--Header-->
+	<div class="header">
+		<h1><a href="(*blog_link*)">(*blog_title*)</a></h1>
+		<h2 class="subtitle">(*blog_short_description*)</h2>
+	</div>
+	
+	<!--Menu-->
+	<box:menu>
+		<div class="main-menu">
+			<ul>
+				<view:menu>
+					<li class="(*menu_item_selected*)">
+						<a href="(*menu_item_link*)">(*menu_item_title*)</a>
+					</li>
+				</view:menu>
+			</ul>
+		</div>
+	</box:menu>
+	
+	<!--Content wrp-->
+	<div class="content-wrp">
+		<!--Message-->
+		<box:messages>
+			<view:messages>
+				<div style="padding-top: 15px;">
+					<div class="item_(*message_type*)">
+						<div class="icon"></div>
+						(*message*)
+					</div>
+				</div>
+				<!-- /align -->
+			</view:messages>
+		</box:messages>
+		<!--/Message-->
+		
+		<!--Posts-->
+		<div class="posts">
+			<!--Page all-->
+			<box:page_detail>
+				<div class="post">
+					<div class="content">
+						<h2 class="title"><a href="(*page_link*)">(*page_title*)</a></h2>
+						(*page_content*)
+					</div>
+					<!--Comment all-->
+					<div class="comments">
+						<check:if page_has_send_comment>
+							<a name="comments"></a>
+							(*comment_add_form*)
+						</check:if>
+						<box:page_comments>
+							<div class="messages-post messages-comments">
+								<h2>نظرات <a href="(*page_link*)#comments" class="comment_count"> ((*page_comment_count*))</a></h2>
+								<check:if not page_comment_count>
+									<center>هیچ نظری هنوز ثبت نشده است</center>
+								</check:if>
+							</div>
+							<view:page_comments>
+								<div class="comment">
+									<div class="detail">
+										<p><img src="(*comment_avatar*)"><a href="(*comment_website*)">(*comment_fullname*)</a> در (*comment_date*)</p>
+									</div>
+									<div class="comment-text">
+										<a name="comment-(*comment_id*)"></a>
+										(*comment_body*)
+										<check:if comment_reply>
+											<div class="reply">
+												<img src="(*comment_reply_avatar*)">(*comment_reply*)
+											</div>
+										</check:if>
+									</div>
+								</div>
+							</view:page_comments>
+						</box:page_comments>
+					</div>
+					<!--/Comment all-->
+				</div>
+			</box:page_detail>
+			<!--/Page all-->
+			
+			<!--Post all-->
+			<box:post_detail>
+				<div class="post">
+					<div class="content">
+						<h2 class="title"><a href="(*post_link*)">(*post_title*)</a></h2>
+						<h4 class="subtitle">توسط : (*post_author*)</h4>
+						<h4 class="subtitle">در تاریخ : (*post_date*)</h4>
+						(*post_full_content*)
+					</div>
+					<div class="buttom">
+						<box:post_rating>
+							<span class="rate-box (*user_rated*)">
+								<span class="rate-button-box rate-up (*user_rated_up*)">
+									<a href="(*rate_up_link*)" class="rate-button" rel="nofollow" title="موافق">
+										<i class="fa fa-thumbs-o-up"></i> (*up_rates*)
+									</a>
+								</span>
+								<span class="rate-button-box rate-down (*user_rated_down*)">
+									<a href="(*rate_down_link*)" class="rate-button" rel="nofollow" title="مخالف">
+										<i class="fa fa-thumbs-o-down"></i> (*down_rates*)
+									</a>
+								</span>
+							</span>
+						</box:post_rating>
+						<check:if post_has_send_comment>
+							<a href="(*post_link*)#comments" class="comment_count"><i class="fa fa-comments-o"></i> (*post_comment_count*)</a>
+						</check:if>
+					</div>
+					<!--Comment all-->
+					<div class="comments">
+						<check:if post_has_send_comment>
+							(*comment_add_form*)
+						</check:if>
+						<box:post_comments>
+							<div class="messages-post messages-comments">
+								<a name="comments"></a>
+								<h2>نظرات <a href="(*post_link*)#comments" class="comment_count"> ((*post_comment_count*))</a></h2>
+								<check:if not post_comment_count>
+									<center>هیچ نظری هنوز ثبت نشده است</center>
+								</check:if>
+							</div>
+							<view:post_comments>
+								<div class="comment">
+									<div class="detail">
+										<p><img src="(*comment_avatar*)"><a href="(*comment_website*)">(*comment_fullname*)</a> در (*comment_date*)</p>
+									</div>
+									<div class="comment-text">
+										<a name="comment-(*comment_id*)"></a>
+										(*comment_body*)
+										<check:if comment_reply>
+											<div class="reply">
+												<img src="(*comment_reply_avatar*)">(*comment_reply*)
+											</div>
+										</check:if>
+									</div>
+								</div>
+							</view:post_comments>
+						</box:post_comments>
+					</div>
+					<!--/Comment all-->
+				</div>
+			</box:post_detail>
+			<!--/Post all-->
+			
+			<!--Post sumerry-->
+			<box:post_list>
+				<check:if post_list_title>
+					<div class="messages-post">
+						<div class="messages-content">
+							<h2>(*post_list_title*)</h2>
+						</div>
+					</div>
+				</check:if>
+				<view:post_list>
+					<div class="post">
+						<div class="content">
+							<h2 class="title"><a href="(*post_link*)">(*post_title*)</a></h2>
+							<h4 class="subtitle">توسط : (*post_author*)</h4>
+							<h4 class="subtitle">در تاریخ : (*post_date*)</h4>
+							(*post_summary*)
+							<check:if post_has_read_more>
+								<a class="full-post" href="(*post_link*)">ادامه مطلب <i class="fa fa-angle-double-left"></i></a>
+							</check:if>
+						</div>
+						<div class="buttom">
+							<box:post_rating>
+								<span class="rate-box (*user_rated*)">
+									<span class="rate-button-box rate-up (*user_rated_up*)">
+										<a href="(*rate_up_link*)" class="rate-button" rel="nofollow" title="موافق">
+											<i class="fa fa-thumbs-o-up"></i> (*up_rates*)
+										</a>
+									</span>
+									<span class="rate-button-box rate-down (*user_rated_down*)">
+										<a href="(*rate_down_link*)" class="rate-button" rel="nofollow" title="مخالف">
+											<i class="fa fa-thumbs-o-down"></i> (*down_rates*)
+										</a>
+									</span>
+								</span>
+							</box:post_rating>
+							<check:if post_has_send_comment>
+								<a href="(*post_link*)#comments" class="comment_count"><i class="fa fa-comments-o"></i> (*post_comment_count*)</a>
+							</check:if>
+						</div>
+					</div>
+				</view:post_list>
+			</box:post_list>
+			<!--/Post summery-->
+			<!--Page numbering-->
+			<box:pagination>
+				<div class="pagination">
+					<check:if page_prev>
+						<a class="pagePrev" href="(*page_prev*)"><i class="fa fa-angle-double-right"></i></a>
+					</check:if>
+					<div class="pagesList">
+						<view:pages spec="5,2,4,2,3,2">
+							<check:if page_num>
+								<a class="(*page_current*)" href="(*page_link*)">(*page_num*)</a>
+							</check:if>
+							<check:if not page_num>
+								<span class="spacer">. . .</span>
+							</check:if>
+						</view:pages>
+					</div>
+					<check:if page_next>
+						<a class="pageNext" href="(*page_next*)"><i class="fa fa-angle-double-left"></i></a>
+					</check:if>
+				</div>
+			</box:pagination>
+			<!--/Page numbering-->
+		</div>
+		<!--/Posts-->
+		<!--Sidebar-->
+		<div class="sidebar">
+			<!--Desc-->
+			<div class="box">
+				<div class="content">
+					<check:if blog_description>
+						<div class="blog-description">
+							<check:if blog_image>
+								<img alt="(*blog_title*)" src="(*blog_image*)">
+							</check:if>
+							<h4>(*blog_description*)</h4>
+							(*follow_box*) 
+						</div>
+					</check:if>
+				</div>
+			</div>
+			<!--/Desc-->
+			
+			<!--categories-->
+			<box:categories>
+				<div class="box">
+					<div class="title"><i class="fa fa-folder-open"></i> موضوعات</div>
+					<div class="content">
+						<ul>
+							<view:categories>
+								<li class="(*category_selected*)">
+									<check:if category_selected>
+										<span class="category_selected">
+											<i class="fa fa-angle-left"></i><a> (*category_name*)</a>
+										</span>
+									</check:if>
+									<check:if not category_selected>
+										<i class="fa fa-angle-left"></i><a href="(*category_link*)"> (*category_name*)</a>
+									</check:if>
+									<check:if category_children>
+										<ul class="subcats">
+											<view:category_children></view:category_children>
+										</ul>
+									</check:if>
+								</li>
+							</view:categories>
+						</ul>
+					</div>
+				</div>
+			</box:categories>
+			<!--/categories-->
+			
+			<!--stat-->
+			<box:stat>
+				<div class="box">
+					<div class="title"><i class="fa fa-bar-chart"></i> خلاصه آمار</div>
+					<div class="content">
+						<ul>
+							<view:stat>
+								<li><i class="fa fa-angle-left"></i> <span>(*stat_title*) : (*stat_value*)</span></li>
+							</view:stat>
+						</ul>
+					</div>
+				</div>
+			</box:stat>
+			<!--/stat-->
+			
+			
+			<!--archive-->
+			<box:archive>
+				<div class="box">
+					<div class="title"><i class="fa fa-archive"></i> آرشیو</div>
+					<div class="content">
+						<ul>
+							<view:archive>
+								<li class="(*archive_selected*)"><i class="fa fa-angle-left"></i> <a href="(*link_url*)">(*link_name*) :  (*link_count*)</a></li>
+							</view:archive>
+						</ul>
+					</div>
+				</div>
+			</box:archive>
+			<!--/archive-->
+			
+			<!--recent-->
+			<box:recent_posts>
+				<div class="box">
+					<div class="title"><i class="fa fa-book"></i> آخرین مطلب</div>
+					<div class="content">
+						<ul>
+							<view:recent_posts>
+								<li><i class="fa fa-angle-left"></i> <a href="(*post_link*)">(*post_title*)</a></li>
+							</view:recent_posts>
+						</ul>
+					</div>
+				</div>
+			</box:recent_posts>
+			<!--/recent-->
+			
+			<!--visit-->
+			<box:most_visited_posts>
+				<div class="box">
+					<div class="title"><i class="fa fa-eye"></i> پربیننده ترین مطالب</div>
+					<div class="content">
+						<ul>
+							<view:most_visited_posts>
+								<li><i class="fa fa-angle-left"></i> <a href="(*post_link*)">(*post_title*)</a></li>
+							</view:most_visited_posts>
+						</ul>
+					</div>
+				</div>
+			</box:most_visited_posts>
+			<!--/visit-->
+			
+			<!--popular-->
+			<box:popular_posts>
+				<div class="box">
+					<div class="title"><i class="fa fa-thumbs-up"></i> محبوب ترین مطالب</div>
+					<div class="content">
+						<ul>
+							<view:popular_posts>
+								<li><i class="fa fa-angle-left"></i> <a href="(*post_link*)">(*post_title*)</a></li>
+							</view:popular_posts>
+						</ul>
+					</div>
+				</div>
+			</box:popular_posts>
+			<!--/popular-->
+			
+			<!--comment_most-->
+			<box:most_commented_posts>
+				<div class="box">
+					<div class="title"><i class="fa fa-comment"></i> پر بحث ترین مطالب</div>
+					<div class="content">
+						<ul>
+							<view:most_commented_posts>
+								<li><i class="fa fa-angle-left"></i> <a href="(*post_link*)">(*post_title*)</a></li>
+							</view:most_commented_posts>
+						</ul>
+					</div>
+				</div>
+			</box:most_commented_posts>
+			<!--/comment_most-->
+			
+			<!--comment_recent-->
+			<box:recent_comments>
+				<div class="box">
+					<div class="title"><i class="fa fa-comments"></i> آخرین نظرات</div>
+					<div class="content">
+						<ul>
+							<view:recent_comments>
+								<li><i class="fa fa-angle-left"></i> <a href="(*comment_link*)">(*comment_body_text max="25"*)</a></li>
+							</view:recent_comments>
+						</ul>
+					</div>
+				</div>
+			</box:recent_comments>
+			<!--/comment_recent-->
+			
+			<!--daily_links-->
+			<box:daily_links>
+				<div class="box">
+					<div class="title"><i class="fa fa-external-link"></i> پیوند های روزانه</div>
+					<div class="content">
+						<ul>
+							<view:daily_links>
+								<li><i class="fa fa-angle-left"></i> <a alt="(*link_alt*)" href="(*link_url*)">(*link_name*)</a></li>
+							</view:daily_links>
+						</ul>
+					</div>
+				</div>
+			</box:daily_links>
+			<!--/daily_links-->
+			
+			<!--links-->
+			<box:links>
+				<div class="box">
+					<div class="title"><i class="fa fa-link"></i> پیوند ها</div>
+					<div class="content">
+						<ul>
+							<view:links>
+								<li><i class="fa fa-angle-left"></i> <a alt="(*link_alt*)" href="(*link_url*)">(*link_name*)</a></li>
+							</view:links>
+						</ul>
+					</div>
+				</div>
+			</box:links>
+			<!--/links-->
+		</div>
+		<!--Sidebar-->
+		<div class="clear"></div>
+	</div>
+	<!--/Content wrp-->
+	<!--Footer-->
+	<div class="footer">
+		(*copyright_notice*)
+		<div class="copyright">
+			<a href="https://alirezaahani.blog.ir">DarkBlue</a>
+		</div>
+	</div>
+	<!--/Footer-->
+	
+</body></html>
