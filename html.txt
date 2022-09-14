@@ -221,19 +221,21 @@
 		<!--Sidebar-->
 		<div class="sidebar">
 			<!--Desc-->
+			<box:blog_info>
 			<div class="box">
 				<div class="content">
-					<check:if blog_description>
-						<div class="blog-description">
-							<check:if blog_image>
-								<img alt="(*blog_title*)" src="(*blog_image*)">
-							</check:if>
+					<div class="blog-description">
+						<check:if blog_image>
+							<img alt="(*blog_title*)" src="(*blog_image*)">
+						</check:if>
+						<check:if blog_description>
 							<h4>(*blog_description*)</h4>
-							(*follow_box*) 
-						</div>
-					</check:if>
+						</check:if>
+						(*follow_box*) 
+					</div>
 				</div>
 			</div>
+			</box:blog_info>
 			<!--/Desc-->
 			
 			<!--categories-->
